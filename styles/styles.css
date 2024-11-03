@@ -32,7 +32,7 @@ header {
 }
 
 .header-buttons button {
-    background-color: white;
+    background-color: #B3B3B3;
     color: black; /* Черный текст */
     border: none;
     padding: 12px 24px;
@@ -47,9 +47,9 @@ header {
     color: white;
 }
 
-.header-logo img {
-    max-width: 150px;
-    height: auto;
+.header-logo {
+    max-width: 100px;
+    height: 85px;
 }
 
 main {
