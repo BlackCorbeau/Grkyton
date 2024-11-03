@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка нашего приложения</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-logo">
+                <img src="https://via.placeholder.com/150x75?text=Логотип" alt="Логотип">
+            </div>
+            <div class="header-buttons">
+                <button>Зарегистрироваться</button>
+                <button>Войти</button>
+                <button id="theme-toggle">Переключить тему</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <div class="content-block">
+                <img src="https://via.placeholder.com/600x400?text=Спортплощадка" alt="Спортплощадка">
+                <div class="text-block bordered">
+                    <h2>Что делает наше приложение</h2>
+                    <p>Наше приложение представляет собой интерактивную карту, на которой отмечены все спортплощадки нашего города. Нажав на ярлык определенной спортплощадки, вы сможете увидеть подробную информацию о ней, включая доступные тренажеры, виды спорта и популярность площадки. Также вы сможете узнать о предстоящих мероприятиях и соревнованиях, на которые можно записаться, заполнив анкету.</p>
+                </div>
+                <img src="https://via.placeholder.com/150x150?text=Картинка" alt="Картинка">
+            </div>
+        </section>
+        <section>
+            <div class="content-block">
+                <img src="https://via.placeholder.com/600x400?text=Спорт" alt="Спорт">
+                <div class="text-block bordered">
+                    <h2>Для чего оно создано</h2>
+                    <p>Наше приложение создано с целью помочь жителям города легко находить спортплощадки и узнавать о предстоящих мероприятиях. Мы стремимся сделать спорт более доступным и удобным для всех, независимо от возраста и уровня подготовки. С нашим приложением вы всегда будете в курсе всех спортивных событий в вашем городе.</p>
+                </div>
+                <img src="https://via.placeholder.com/150x150?text=Картинка" alt="Картинка">
+            </div>
+        </section>
+        <section>
+            <h2>Авторы</h2>
+            <div class="authors-section">
+                <div class="author">
+                    <img src="https://via.placeholder.com/100x100?text=Фото" alt="Иван Иванов">
+                    <p>Иван Иванов</p>
+                </div>
+                <div class="author">
+                    <img src="https://via.placeholder.com/100x100?text=Фото" alt="Петр Петров">
+                    <p>Петр Петров</p>
+                </div>
+                <div class="author">
+                    <img src="https://via.placeholder.com/100x100?text=Фото" alt="Анна Сидорова">
+                    <p>Анна Сидорова</p>
+                </div>
+                <div class="author">
+                    <img src="https://via.placeholder.com/100x100?text=Фото" alt="Екатерина Кузнецова">
+                    <p>Екатерина Кузнецова</p>
+                </div>
+                <div class="author">
+                    <img src="https://via.placeholder.com/100x100?text=Фото" alt="Алексей Смирнов">
+                    <p>Алексей Смирнов</p>
+                </div>
+                <div class="author">
+                    <img src="https://via.placeholder.com/100x100?text=Фото" alt="Мария Федорова">
+                    <p>Мария Федорова</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="footer">
+        <p>&copy; 2023 Наше приложение. Все права защищены.</p>
+    </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('light-theme');
+            document.querySelector('header').classList.toggle('light-theme');
+            document.querySelectorAll('.content-block').forEach(block => block.classList.toggle('light-theme'));
+            document.querySelectorAll('.text-block.bordered').forEach(block => block.classList.toggle('light-theme'));
+            document.querySelectorAll('h2').forEach(heading => heading.classList.toggle('light-theme'));
+            document.querySelectorAll('.author').forEach(author => author.classList.toggle('light-theme'));
+            document.querySelector('.footer').classList.toggle('light-theme');
+            document.querySelectorAll('.header-buttons button').forEach(button => button.classList.toggle('light-theme'));
+        });
+    </script>
+</body>
+</html>
