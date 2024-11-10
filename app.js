@@ -8,6 +8,7 @@ import sqlite3 from "sqlite3"
 import bcript from "bcryptjs"
 import morgan from "morgan"
 import methodOverride from "method-override"
+import { SportGround, Sports, SportGroundSports, Event, User, Admin } from './data_base/db.js'
 
 //const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const app = express()
