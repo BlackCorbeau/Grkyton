@@ -177,3 +177,20 @@ class Sports {
         db.run(sql, [id], cb);
     }
 }
+
+class SportGroundSports {
+    static allSportGroundSports(cb) {
+        db.all("SELECT * FROM SportGroundSports", cb);
+    }
+
+    static addSportGroundSport(sportground_id, sport_id, cb) {
+        const sql = "INSERT INTO SportGroundSports (sportground_id, sport_id) VALUES (?, ?)";
+        db.run(sql, [sportground_id, sport_id], cb);
+    }
+
+    static deleteSportGroundSport(sportground_id, sport_id, cb) {
+        const sql = "DELETE FROM SportGroundSports WHERE sportground_id = ? AND sport_id = ?";
+        db.run(sql, [sportground_id, sport_id], cb);
+    }
+}
+
