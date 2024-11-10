@@ -142,17 +142,17 @@ class SportGround {
     
     static addSportGround(latitude, longitude, description, address, cb) {
         const sql = "INSERT INTO SportGround (latitude, longitude, description, address) VALUES (?, ?, ?, ?)";
-        db.run(sql, latitude, longitude, description, address, cb);
+        db.run(sql, [latitude, longitude, description, address], cb);
     }
      
     static updateSportGrounds(id, latitude, longitude, description, address, cb) {
         const sql = "UPDATE SportGround SET latitude = ?, longitude = ?, description = ?, address = ? WHERE id = ?";
-        db.run(sql, latitude, longitude, description, address, id, cb);
+        db.run(sql, [latitude, longitude, description, address, id], cb);
     }
 
     static deleteSportGround(id, cb) {
         const sql = "DELETE FROM SportGround WHERE id = ?";
-        db.run(sql, id, cb);
+        db.run(sql, [id], cb);
     }
 
 }
@@ -191,6 +191,16 @@ class SportGroundSports {
     static deleteSportGroundSport(sportground_id, sport_id, cb) {
         const sql = "DELETE FROM SportGroundSports WHERE sportground_id = ? AND sport_id = ?";
         db.run(sql, [sportground_id, sport_id], cb);
+    }
+
+    static findAllSportInSportGround(sportground_id, cb) {
+        const sql = "SELECT COUNT(*) as count FROM SportGroundSports WHERE sportground_id = ?"
+        db.get(sql, [sportground_id], cb);
+    }
+
+    static findAllSport(sport_id, cb) {
+        const sql = "SELECT COUNT(*) as count FROM SportGroundSports WHERE sport_id = ?"
+        db.get(sql, [sport_id], cb);
     }
 }
 
@@ -257,3 +267,4 @@ class Admin {
     }
 }
 
+export{ db, SportGround, Sports, SportGroundSports, Event, User, Admin };
