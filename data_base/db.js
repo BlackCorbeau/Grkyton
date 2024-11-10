@@ -135,7 +135,7 @@ db.serialize(() => {
 });
 
 
-/*class SportGround {
+class SportGround {
     static allSportGrounds(cb) {
         db.all("SELECT * FROM SportGround", cb);
     }
@@ -144,7 +144,36 @@ db.serialize(() => {
         const sql = "INSERT INTO SportGround (latitude, longitude, description, address) VALUES (?, ?, ?, ?)";
         db.run(sql, latitude, longitude, description, address, cb);
     }
+     
+    static updateSportGrounds(id, latitude, longitude, description, address, cb) {
+        const sql = "UPDATE SportGround SET latitude = ?, longitude = ?, description = ?, address = ? WHERE id = ?";
+        db.run(sql, latitude, longitude, description, address, id, cb);
+    }
 
+    static deleteSportGround(id, cb) {
+        const sql = "DELETE FROM SportGround WHERE id = ?";
+        db.run(sql, id, cb);
+    }
 
+}
 
-}*/
+class Sports {
+    static allSports(cb) {
+        db.all("SELECT * FROM Sports", cb);
+    }
+
+    static addSport(title, sportground_id, cb) {
+        const sql = "INSERT INTO Sports (title, sportground_id) VALUES (?, ?)";
+        db.run(sql, [title, sportground_id], cb);
+    }
+
+    static updateSport(id, title, sportground_id, cb) {
+        const sql = "UPDATE Sports SET title = ?, sportground_id = ? WHERE id = ?";
+        db.run(sql, [title, sportground_id, id], cb);
+    }
+
+    static deleteSport(id, cb) {
+        const sql = "DELETE FROM Sports WHERE id = ?";
+        db.run(sql, [id], cb);
+    }
+}
