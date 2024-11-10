@@ -22,7 +22,7 @@ db.serialize(() => {
     );
     `;
 
-    const sportGraundSportTable = `
+    const sportGroundSportTable = `
     CREATE TABLE IF NOT EXISTS "SportGroundSports" (
         "sportground_id" INTEGER NOT NULL,
         "sport_id" INTEGER NOT NULL,
@@ -93,7 +93,7 @@ db.serialize(() => {
         }
     });
 
-    db.run(sportGraundSportTable, (err) => {
+    db.run(sportGroundSportTable, (err) => {
         if (err) {
             console.error('Error creating Sport Ground Sport table', err);
         } else {
@@ -162,14 +162,14 @@ class Sports {
         db.all("SELECT * FROM Sports", cb);
     }
 
-    static addSport(title, sportground_id, cb) {
-        const sql = "INSERT INTO Sports (title, sportground_id) VALUES (?, ?)";
-        db.run(sql, [title, sportground_id], cb);
+    static addSport(title, cb) {
+        const sql = "INSERT INTO Sports (title) VALUES (?)";
+        db.run(sql, [title], cb);
     }
 
-    static updateSport(id, title, sportground_id, cb) {
-        const sql = "UPDATE Sports SET title = ?, sportground_id = ? WHERE id = ?";
-        db.run(sql, [title, sportground_id, id], cb);
+    static updateSport(id, title, cb) {
+        const sql = "UPDATE Sports SET title = ? WHERE id = ?";
+        db.run(sql, [title, id], cb);
     }
 
     static deleteSport(id, cb) {
