@@ -215,4 +215,45 @@ class Event {
     }
 }
 
+class User {
+    static allUsers(cb) {
+        db.all("SELECT * FROM User", cb);
+    }
+
+    static addUser(nickname, password, email, photo, cb) {
+        const sql = "INSERT INTO User (nickname, password, email, photo) VALUES (?, ?, ?, ?)";
+        db.run(sql, [nickname, password, email, photo], cb);
+    }
+
+    static updateUser(id, nickname, password, email, photo, cb) {
+        const sql = "UPDATE User SET nickname = ?, password = ?, email = ?, photo = ? WHERE id = ?";
+        db.run(sql, [nickname, password, email, photo, id], cb);
+    }
+
+    static deleteUser(id, cb) {
+        const sql = "DELETE FROM User WHERE id = ?";
+        db.run(sql, [id], cb);
+    }
+}
+
+class Admin {
+    static allAdmins(cb) {
+        db.all("SELECT * FROM Admin", cb);
+    }
+
+    static addAdmin(login, password, email, cb) {
+        const sql = "INSERT INTO Admin (login, password, email) VALUES (?, ?, ?)";
+        db.run(sql, [login, password, email], cb);
+    }
+
+    static updateAdmin(id, login, password, email, cb) {
+        const sql = "UPDATE Admin SET login = ?, password = ?, email = ? WHERE id = ?";
+        db.run(sql, [login, password, email, id], cb);
+    }
+
+    static deleteAdmin(id, cb) {
+        const sql = "DELETE FROM Admin WHERE id = ?";
+        db.run(sql, [id], cb);
+    }
+}
 
