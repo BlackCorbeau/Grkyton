@@ -194,3 +194,25 @@ class SportGroundSports {
     }
 }
 
+class Event {
+    static allEvents(cb) {
+        db.all("SELECT * FROM Event", cb);
+    }
+
+    static addEvent(title, sport_id, description, organizer, date, time, cb) {
+        const sql = "INSERT INTO Event (title, sport_id, description, organizer, date, time) VALUES (?, ?, ?, ?, ?, ?)";
+        db.run(sql, [title, sport_id, description, organizer, date, time], cb);
+    }
+
+    static updateEvent(id, title, sport_id, description, organizer, date, time, cb) {
+        const sql = "UPDATE Event SET title = ?, sport_id = ?, description = ?, organizer = ?, date = ?, time = ? WHERE id = ?";
+        db.run(sql, [title, sport_id, description, organizer, date, time, id], cb);
+    }
+
+    static deleteEvent(id, cb) {
+        const sql = "DELETE FROM Event WHERE id = ?";
+        db.run(sql, [id], cb);
+    }
+}
+
+
