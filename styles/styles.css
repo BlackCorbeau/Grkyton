@@ -32,7 +32,7 @@ header {
 }
 
 .header-buttons button {
-    background-color: white;
+    background-color: #B3B3B3;
     color: black; /* Черный текст */
     border: none;
     padding: 12px 24px;
@@ -43,13 +43,13 @@ header {
 }
 
 .header-buttons button:hover {
-    background-color: #39ff14; /* Неоновый зеленый */
+    background-color: #23bd08; /* Неоновый зеленый */
     color: white;
 }
 
-.header-logo img {
-    max-width: 150px;
-    height: auto;
+.header-logo {
+    max-width: 100px;
+    height: 85px;
 }
 
 main {
@@ -128,16 +128,12 @@ h2 {
 
 .footer {
     background-color: #333;
-    color: white;
+    color: #fff;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s;
+    padding: 15px;
+    font-size: 14px;
 }
+
 
 /* Светлая тема */
 body.light-theme {
